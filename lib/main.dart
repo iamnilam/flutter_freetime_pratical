@@ -6,6 +6,7 @@ import 'package:my_pratical_project/drawer/signup.dart';
 import 'package:my_pratical_project/music/music_screen.dart';
 import 'package:my_pratical_project/random_color.dart';
 import 'package:my_pratical_project/roller_game/home_page.dart';
+import 'package:my_pratical_project/sqflite/screens/note_list.dart';
 import 'package:my_pratical_project/tictactoe/hometic.dart';
 
 import 'scatch_and_win/scratch.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ApiNewScreen(),
+      home: const NoteList(),
     );
   }
 }

@@ -3,16 +3,15 @@ import 'dart:io';
 import 'dart:async';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
-class CameraScreen extends StatefulWidget {
-  const CameraScreen({Key? key}) : super(key: key);
+class Camera_Screen extends StatefulWidget {
+  const Camera_Screen({Key? key}) : super(key: key);
 
   @override
-  State<CameraScreen> createState() => _CameraScreenState();
+  State<Camera_Screen> createState() => _Camera_ScreenState();
 }
 
-class _CameraScreenState extends State<CameraScreen> {
+class _Camera_ScreenState extends State<Camera_Screen> {
   final imagePicker = ImagePicker();
   PickedFile? pickedFile;
   File? _image;
@@ -21,10 +20,10 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My camera app"),
+        title: Text("My camera app"),
       ),
       body: Center(
-        child: _image == null ? const Text("No Images") : Image.file(_image!),
+        child: _image == null ? Text("No Images") : Image.file(_image!),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -47,38 +46,19 @@ class _CameraScreenState extends State<CameraScreen> {
 
   Future<void> openCamera() async {
     pickedFile = await imagePicker.getImage(source: ImageSource.camera);
-    if (pickedFile != null) {
-      setState(() {
+    setState(() {
+      if (pickedFile != null) {
         _image = File(pickedFile!.path);
-      });
-      uploadImageToFirebase();
-    }
+      }
+    });
   }
 
   Future<void> openGallery() async {
     pickedFile = await imagePicker.getImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      setState(() {
+    setState(() {
+      if (pickedFile != null) {
         _image = File(pickedFile!.path);
-      });
-      uploadImageToFirebase();
-    }
-  }
-
-  Future<void> uploadImageToFirebase() async {
-    if (_image == null) return;
-    try {
-      firebase_storage.FirebaseStorage storage =
-          firebase_storage.FirebaseStorage.instance;
-      final ref = storage.ref().child('images/${DateTime.now()}.png');
-      await ref.putFile(_image!);
-      final url = await ref.getDownloadURL();
-
-      // Use the `url` for displaying or further processing
-      print('File uploaded. Download URL: $url');
-    } catch (e) {
-      print('Error uploading image to Firebase Storage: $e');
-      // Handle any errors that occur during the upload process
-    }
+      }
+    });
   }
 }

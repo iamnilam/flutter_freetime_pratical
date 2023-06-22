@@ -35,18 +35,16 @@ class _RandomColorsState extends State<RandomColors> {
       body: Center(
         child: Container(
           color: currentColor,
-          child: Container(
-            child: ElevatedButton(
-              // color: Colors.black,
-              // padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-              child: Text(
-                "click",
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                setRandomColors();
-              },
+          child: ElevatedButton(
+            // color: Colors.black,
+            // padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+            child: const Text(
+              "click",
+              style: TextStyle(color: Colors.white),
             ),
+            onPressed: () {
+              setRandomColors();
+            },
           ),
         ),
       ),

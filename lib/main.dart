@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_pratical_project/camera/camera.dart';
+import 'package:my_pratical_project/drawer/signup.dart';
 import 'package:my_pratical_project/music/music_screen.dart';
 import 'package:my_pratical_project/random_color.dart';
 import 'package:my_pratical_project/roller_game/home_page.dart';
 import 'package:my_pratical_project/tictactoe/hometic.dart';
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import 'scatch_and_win/scratch.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const MyApp());
 }
 
@@ -24,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CameraScreen(),
+      home: const SignUpScreen(),
     );
   }
 }

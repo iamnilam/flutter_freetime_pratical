@@ -12,7 +12,7 @@ class ApiScreen extends StatefulWidget {
 
 class _ApiScreenState extends State<ApiScreen> {
   final String url = "https://api.github.com/users";
-  late List data;
+  late List data = [];
   var isLoading = false;
 
   @override
@@ -35,26 +35,27 @@ class _ApiScreenState extends State<ApiScreen> {
       appBar: AppBar(
         title: const Text("sdcsfsd"),
       ),
-      body: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (BuildContext context, int index) {
-            const Card(
-                child: Column(
+      body: ListView(
+        children: data.map((user) {
+          return Card(
+            child: Column(
               children: [
                 ListTile(
                   leading: Icon(Icons.person),
                   title: Text(
-                    "Dummy Data",
+                    user["login"],
                     style: TextStyle(fontSize: 20.0),
                   ),
                   subtitle: Text(
-                    "Sub Dummy data",
-                    style: TextStyle(fontSize: 15.0),
+                    user["url"],
+                    style: const TextStyle(fontSize: 15.0),
                   ),
-                )
+                ),
               ],
-            ));
-          }),
+            ),
+          );
+        }).toList(),
+      ),
     );
   }
 }

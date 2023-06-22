@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_pratical_project/api/api_screen.dart';
 import 'package:my_pratical_project/camera/camera.dart';
 import 'package:my_pratical_project/drawer/signup.dart';
 import 'package:my_pratical_project/music/music_screen.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignUpScreen(),
+      home: const ApiScreen(),
     );
   }
 }

@@ -41,16 +41,20 @@ class _ApiScreenState extends State<ApiScreen> {
             child: Column(
               children: [
                 ListTile(
-                  leading: Icon(Icons.person),
+                  leading: const Icon(Icons.person),
                   title: Text(
                     user["login"],
-                    style: TextStyle(fontSize: 20.0),
+                    style: const TextStyle(fontSize: 20.0),
                   ),
                   subtitle: Text(
                     user["url"],
                     style: const TextStyle(fontSize: 15.0),
                   ),
-                ),
+                  trailing: Text(
+                    user["login"],
+                    style: const TextStyle(fontSize: 20.0),
+                  ),
+                )
               ],
             ),
           );

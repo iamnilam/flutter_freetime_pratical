@@ -13,7 +13,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.4+2
-  firebase_storage: ^10.0.4
+#  firebase_storage: ^10.0.4
   path: ^1.8.0
   http: ^0.13.4
   sqflite: ^2.2.8+4

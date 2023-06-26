@@ -16,7 +16,7 @@ class NoteDetail extends StatefulWidget {
 }
 
 class NoteDetailState extends State<NoteDetail> {
-  static var _priority = ['High', 'Low'];
+  static final _priority = ['High', 'Low'];
   String appBarTitle;
   Note note;
   late DatabaseHelper helper; // Instantiate DatabaseHelper object
@@ -49,14 +49,14 @@ class NoteDetailState extends State<NoteDetail> {
           title: Text(appBarTitle),
           backgroundColor: Colors.pink,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               moveToLastScr();
             },
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
@@ -64,7 +64,7 @@ class NoteDetailState extends State<NoteDetail> {
             child: ListView(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 15.0, bottom: 5.0),
+                  padding: const EdgeInsets.only(top: 15.0, bottom: 5.0),
                   //dropdown menu
                   child: ListTile(
                     leading: const Icon(Icons.low_priority),
@@ -74,7 +74,7 @@ class NoteDetailState extends State<NoteDetail> {
                           value: dropDownStringItem,
                           child: Text(
                             dropDownStringItem,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.red,
